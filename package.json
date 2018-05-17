@@ -1,0 +1,41 @@
+{
+  "name": "@reinjs/rein-dbo-cache",
+  "version": "1.0.0",
+  "description": "The dbo cache plugin of rein's rein-dbo",
+  "main": "index.js",
+  "plugin": {
+    "name": "cache",
+    "dependencies": [
+      "dbo"
+    ]
+  },
+  "scripts": {
+    "test": "NODE_ENV=dev node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/reinjs/rein-dbo-cache.git"
+  },
+  "keywords": [
+    "dbo",
+    "cache",
+    "rein"
+  ],
+  "author": "reinjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reinjs/rein-dbo-cache/issues"
+  },
+  "homepage": "https://github.com/reinjs/rein-dbo-cache#readme",
+  "dependencies": {
+    "@reinjs/rein-class": "^1.0.1",
+    "@reinjs/rein-loader": "^1.0.1",
+    "is-type-of": "^1.2.0",
+    "path-to-regexp": "^2.2.1"
+  },
+  "devDependencies": {
+    "@reinjs/rein": "^1.0.2",
+    "@reinjs/rein-cluster": "^1.0.1",
+    "@reinjs/rein-dbo": "^1.0.1"
+  }
+}
