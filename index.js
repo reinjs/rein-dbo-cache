@@ -16,6 +16,7 @@
 const ReinClassic = require('@reinjs/rein-class');
 const pathToRegexp = require('path-to-regexp');
 const toString = Object.prototype.toString;
+const is = require('is-type-of');
 
 class CacheExpire {
   constructor(data, expire) {
@@ -113,6 +114,7 @@ module.exports = class Cache extends ReinClassic {
    * @param {*} args
    */
   async load(name, args) {
+    if (is.array(args)) return await Promise.all(args.map(field => this.load(name, field)));
     const road = this.path(name, args);
     const exists = await this.redis.exists(road);
     if (exists) {
@@ -131,6 +133,7 @@ module.exports = class Cache extends ReinClassic {
    * @param {*} data
    */
   async build(name, args, data) {
+    if (is.array(args)) return await Promise.all(args.map(field => this.build(name, field)));
     const road = this.path(name, args);
     if (data !== undefined) {
       await this.redis.hmset(road, this.encode(data));
@@ -169,6 +172,7 @@ module.exports = class Cache extends ReinClassic {
    * @param {*} args
    */
   async delete(name, args) {
+    if (is.array(args)) return await Promise.all(args.map(field => this.delete(name, field)));
     const road = this.path(name, args);
     const exists = await this.redis.exists(road);
     if (exists) {
