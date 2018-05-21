@@ -5,11 +5,11 @@ module.exports = class Commander {
   }
   
   async add(name, data) {
-    const ctx = this.ctx;
-    let file;
-    const bname = name.replace(/[\/\-\.]+/, '_');
-    const cname = ctx.utils.cname(bname, 'cache');
     if (data.cache) {
+      let file;
+      const ctx = this.ctx;
+      const bname = name.replace(/[\-\.]+/, '_');
+      const cname = ctx.utils.cname(bname, 'cache');
       const relativePath = path.relative(ctx.projectCwd, process.cwd());
       if (!relativePath) {
         file = path.resolve(ctx.projectCwd, 'app', 'cache', binkJsExt(name));
