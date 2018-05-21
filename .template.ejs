@@ -1,0 +1,17 @@
+const Cache = require('@reinjs/rein-dbo-cache');
+
+module.exports = class <%=cname%> extends Cache {
+  constructor(...args) {
+    super(...args);
+  }
+
+  /**
+   * 默认缓存，可以清除
+   * 仅演示使用
+   * @param args
+   * @returns {Promise[*]}
+    */
+  async ['/cache/:id(\\d+)/test/:name([a-zA-Z0-9_\\-])'](args) {
+    // do something and return a cache data.
+  }
+};

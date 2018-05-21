@@ -1,6 +1,6 @@
 {
   "name": "@reinjs/rein-dbo-cache",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The dbo cache plugin of rein's rein-dbo",
   "main": "index.js",
   "plugin": {
